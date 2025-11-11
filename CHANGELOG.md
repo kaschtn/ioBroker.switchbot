@@ -1,6 +1,6 @@
 # Changelog
 
-## 1.0.0 (2024-11-03)
+## 0.9.0 (2025-11-11)
 
 ### Features
 - Initial release of SwitchBot adapter for ioBroker
@@ -38,4 +38,5 @@
 - ioBroker >= 3.3.22
 - SwitchBot app version 6.14 or later
 - Valid SwitchBot API credentials (token and secret)
+
 - Cloud Service enabled for BLE devices
