@@ -1,0 +1,55 @@
+name: Dependency Updates
+
+on:
+  schedule:
+    # Run every Monday at 9 AM UTC
+    - cron: '0 9 * * 1'
+  workflow_dispatch:
+
+jobs:
+  check-updates:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Use Node.js 18
+        uses: actions/setup-node@v4
+        with:
+          node-version: 18
+          cache: 'npm'
+
+      - name: Check for outdated packages
+        run: npm outdated || true
+
+      - name: Create issue if dependencies are outdated
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const { exec } = require('child_process');
+            const util = require('util');
+            const execPromise = util.promisify(exec);
+            
+            try {
+              const { stdout } = await execPromise('npm outdated --json');
+              if (stdout) {
+                const outdated = JSON.parse(stdout);
+                const packages = Object.keys(outdated);
+                
+                if (packages.length > 0) {
+                  const body = `## Outdated Dependencies\n\nThe following packages have updates available:\n\n${packages.map(pkg => `- **${pkg}**: ${outdated[pkg].current} → ${outdated[pkg].latest}`).join('\n')}`;
+                  
+                  github.rest.issues.create({
+                    owner: context.repo.owner,
+                    repo: context.repo.repo,
+                    title: 'Dependency Updates Available',
+                    body: body,
+                    labels: ['dependencies']
+                  });
+                }
+              }
+            } catch (error) {
+              // No outdated packages or error occurred
+              console.log('No outdated packages or error:', error.message);
+            }
