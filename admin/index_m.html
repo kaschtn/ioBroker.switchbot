@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>SwitchBot Adapter Configuration</title>
+    
+    <link rel="stylesheet" type="text/css" href="../../css/adapter.css"/>
+    <link rel="stylesheet" type="text/css" href="../../lib/css/materialize.css">
+    <link rel="stylesheet" type="text/css" href="../../css/adapter.css"/>
+    
+    <script type="text/javascript" src="../../lib/js/jquery-3.2.1.min.js"></script>
+    <script type="text/javascript" src="../../socket.io/socket.io.js"></script>
+    <script type="text/javascript" src="../../js/translate.js"></script>
+    <script type="text/javascript" src="../../lib/js/materialize.js"></script>
+    <script type="text/javascript" src="../../js/adapter-settings.js"></script>
+    
+    <style>
+        .help-text {
+            font-size: 0.9em;
+            color: #666;
+            margin-top: 5px;
+        }
+        
+        .card-content {
+            padding: 20px;
+        }
+        
+        .test-result {
+            margin-top: 10px;
+            padding: 10px;
+            border-radius: 4px;
+        }
+        
+        .test-success {
+            background-color: #c8e6c9;
+            color: #2e7d32;
+        }
+        
+        .test-error {
+            background-color: #ffcdd2;
+            color: #c62828;
+        }
+        
+        .help-section {
+            background-color: #f5f5f5;
+            padding: 15px;
+            border-radius: 4px;
+            margin-top: 20px;
+        }
+        
+        .help-section ol {
+            margin-left: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="m adapter-container">
+        <div class="row">
+            <div class="col s12">
+                <ul class="tabs">
+                    <li class="tab col s6"><a href="#tab-main" class="translate">API Configuration</a></li>
+                    <li class="tab col s6"><a href="#tab-help" class="translate">Help</a></li>
+                </ul>
+            </div>
+            
+            <!-- Main Configuration Tab -->
+            <div id="tab-main" class="col s12 page">
+                <div class="row">
+                    <div class="col s12">
+                        <div class="card">
+                            <div class="card-content">
+                                <span class="card-title translate">API Configuration</span>
+                                
+                                <div class="row">
+                                    <div class="input-field col s12">
+                                        <input placeholder="" id="token" type="text" class="value validate">
+                                        <label for="token" class="translate">Open Token</label>
+                                        <div class="help-text translate">Enter your SwitchBot Open Token from the mobile app</div>
+                                    </div>
+                                </div>
+                                
+                                <div class="row">
+                                    <div class="input-field col s12">
+                                        <input placeholder="" id="secret" type="password" class="value validate">
+                                        <label for="secret" class="translate">Secret Key</label>
+                                        <div class="help-text translate">Enter your SwitchBot Secret Key from the mobile app</div>
+                                    </div>
+                                </div>
+                                
+                                <div class="row">
+                                    <div class="input-field col s12">
+                                        <input placeholder="60000" id="pollInterval" type="number" min="10000" max="3600000" class="value validate">
+                                        <label for="pollInterval" class="translate">Poll Interval (ms)</label>
+                                        <div class="help-text translate">How often to poll device status (minimum 10000ms)</div>
+                                    </div>
+                                </div>
+                                
+                                <div class="row">
+                                    <div class="input-field col s12">
+                                        <label>
+                                            <input type="checkbox" id="enableCloudService" class="value filled-in">
+                                            <span class="translate">Enable Cloud Service</span>
+                                        </label>
+                                        <div class="help-text translate">Required for BLE devices</div>
+                                    </div>
+                                </div>
+                                
+                                <div class="row">
+                                    <div class="col s12">
+                                        <button class="btn waves-effect waves-light" id="test-connection">
+                                            <span class="translate">Test Connection</span>
+                                            <i class="material-icons right">wifi</i>
+                                        </button>
+                                        <div id="test-result" class="test-result" style="display: none;"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Help Tab -->
+            <div id="tab-help" class="col s12 page">
+                <div class="row">
+                    <div class="col s12">
+                        <div class="card">
+                            <div class="card-content">
+                                <span class="card-title translate">Help</span>
+                                
+                                <div class="help-section">
+                                    <h6 class="translate">To get your API credentials:</h6>
+                                    <ol>
+                                        <li class="translate">1. Open SwitchBot app</li>
+                                        <li class="translate">2. Go to Profile > Preferences</li>
+                                        <li class="translate">3. Tap App Version 10 times</li>
+                                        <li class="translate">4. Tap Developer Options</li>
+                                        <li class="translate">5. Tap Get Token</li>
+                                    </ol>
+                                    <p><strong>Note:</strong> You need SwitchBot app version 6.14 or later to get the secret key.</p>
+                                </div>
+                                
+                                <div class="help-section">
+                                    <h6>Supported Devices</h6>
+                                    <ul>
+                                        <li><strong>Physical Devices:</strong> Bot, Curtain, Lock, Meter, Plug, Color Bulb, Humidifier, Motion Sensor, Contact Sensor, etc.</li>
+                                        <li><strong>Infrared Devices:</strong> TV, Air Conditioner, Light, Fan, etc.</li>
+                                    </ul>
+                                </div>
+                                
+                                <div class="help-section">
+                                    <h6>Configuration Notes</h6>
+                                    <ul>
+                                        <li><strong>Poll Interval:</strong> Minimum 10 seconds (10000ms). Lower values may exceed API rate limits.</li>
+                                        <li><strong>Cloud Service:</strong> Must be enabled in the SwitchBot app for BLE devices to work via API.</li>
+                                        <li><strong>API Limits:</strong> 10,000 requests per day per account.</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        // Load settings
+        load(settings, onChange);
+        
+        // Test connection functionality
+        $('#test-connection').on('click', function() {
+            const $button = $(this);
+            const $result = $('#test-result');
+            
+            $button.prop('disabled', true);
+            $result.hide();
+            
+            const token = $('#token').val().trim();
+            const secret = $('#secret').val().trim();
+            
+            if (!token || !secret) {
+                $result.removeClass('test-success').addClass('test-error')
+                    .text('Please enter both token and secret key')
+                    .show();
+                $button.prop('disabled', false);
+                return;
+            }
+            
+            // Test connection via adapter
+            sendTo(null, 'testConnection', { token, secret }, function(result) {
+                $button.prop('disabled', false);
+                
+                if (result && result.success) {
+                    $result.removeClass('test-error').addClass('test-success')
+                        .html('<span class="translate">Connection successful</span><br>' + 
+                              'Found ' + result.deviceCount + ' devices')
+                        .show();
+                } else {
+                    $result.removeClass('test-success').addClass('test-error')
+                        .html('<span class="translate">Connection failed</span><br>' + 
+                              (result.error || 'Unknown error'))
+                        .show();
+                }
+                
+                // Re-translate
+                translateAll();
+            });
+        });
+        
+        // Initialize tabs
+        $(document).ready(function() {
+            $('ul.tabs').tabs();
+            
+            // Set default values
+            if (!settings.pollInterval) {
+                $('#pollInterval').val(60000);
+            }
+            if (settings.enableCloudService === undefined) {
+                $('#enableCloudService').prop('checked', true);
+            }
+        });
+        
+        function onChange(isChanged) {
+            // Validate poll interval
+            const pollInterval = parseInt($('#pollInterval').val());
+            if (pollInterval && pollInterval < 10000) {
+                $('#pollInterval').val(10000);
+            }
+        }
+    </script>
+</body>
+</html>

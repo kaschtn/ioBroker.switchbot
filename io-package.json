@@ -1,0 +1,110 @@
+{
+  "common": {
+    "name": "switchbot",
+    "version": "1.0.0",
+    "news": {
+      "1.0.0": {
+        "en": "Initial release with SwitchBot API v1.1 support",
+        "de": "Erste Veröffentlichung mit SwitchBot API v1.1 Unterstützung",
+        "ru": "Первоначальный выпуск с поддержкой SwitchBot API v1.1",
+        "pt": "Lançamento inicial com suporte SwitchBot API v1.1",
+        "nl": "Eerste release met SwitchBot API v1.1 ondersteuning",
+        "fr": "Version initiale avec support SwitchBot API v1.1",
+        "it": "Versione iniziale con supporto SwitchBot API v1.1",
+        "es": "Lanzamiento inicial con soporte SwitchBot API v1.1",
+        "pl": "Pierwsze wydanie z obsługą SwitchBot API v1.1",
+        "zh-cn": "首次发布，支持SwitchBot API v1.1"
+      }
+    },
+    "title": "SwitchBot",
+    "titleLang": {
+      "en": "SwitchBot",
+      "de": "SwitchBot",
+      "ru": "SwitchBot",
+      "pt": "SwitchBot",
+      "nl": "SwitchBot",
+      "fr": "SwitchBot",
+      "it": "SwitchBot",
+      "es": "SwitchBot",
+      "pl": "SwitchBot",
+      "zh-cn": "SwitchBot"
+    },
+    "desc": {
+      "en": "Control SwitchBot devices via API v1.1",
+      "de": "Steuerung von SwitchBot-Geräten über API v1.1",
+      "ru": "Управление устройствами SwitchBot через API v1.1",
+      "pt": "Controle dispositivos SwitchBot via API v1.1",
+      "nl": "Bedien SwitchBot apparaten via API v1.1",
+      "fr": "Contrôlez les appareils SwitchBot via l'API v1.1",
+      "it": "Controlla i dispositivi SwitchBot tramite API v1.1",
+      "es": "Controla dispositivos SwitchBot a través de API v1.1",
+      "pl": "Steruj urządzeniami SwitchBot przez API v1.1",
+      "zh-cn": "通过API v1.1控制SwitchBot设备"
+    },
+    "authors": [
+      "ioBroker Community"
+    ],
+    "keywords": [
+      "switchbot",
+      "smart home",
+      "automation",
+      "iot"
+    ],
+    "license": "MIT",
+    "platform": "Javascript/Node.js",
+    "main": "main.js",
+    "icon": "switchbot.png",
+    "enabled": true,
+    "extIcon": "https://raw.githubusercontent.com/ioBroker/iobroker.switchbot/master/admin/switchbot.png",
+    "readme": "https://github.com/ioBroker/iobroker.switchbot/blob/master/README.md",
+    "loglevel": "info",
+    "mode": "daemon",
+    "type": "iot-systems",
+    "compact": true,
+    "connectionType": "cloud",
+    "dataSource": "poll",
+    "adminUI": {
+      "config": "materialize"
+    },
+    "dependencies": [
+      {
+        "js-controller": ">=3.3.22"
+      }
+    ],
+    "globalDependencies": [
+      {
+        "admin": ">=5.1.13"
+      }
+    ]
+  },
+  "native": {
+    "token": "",
+    "secret": "",
+    "pollInterval": 60000,
+    "enableCloudService": true
+  },
+  "objects": [],
+  "instanceObjects": [
+    {
+      "_id": "info",
+      "type": "channel",
+      "common": {
+        "name": "Information"
+      },
+      "native": {}
+    },
+    {
+      "_id": "info.connection",
+      "type": "state",
+      "common": {
+        "role": "indicator.connected",
+        "name": "Device or service connected",
+        "type": "boolean",
+        "read": true,
+        "write": false,
+        "def": false
+      },
+      "native": {}
+    }
+  ]
+}

@@ -1,0 +1,8 @@
+<!-- Simple SwitchBot Icon SVG -->
+<svg width="256" height="256" viewBox="0 0 256 256" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <rect width="256" height="256" rx="32" fill="#FF6B35"/>
+    <circle cx="128" cy="128" r="80" fill="white"/>
+    <circle cx="128" cy="128" r="50" fill="#FF6B35"/>
+    <rect x="118" y="88" width="20" height="80" fill="white" rx="10"/>
+    <rect x="88" y="118" width="80" height="20" fill="white" rx="10"/>
+</svg>
