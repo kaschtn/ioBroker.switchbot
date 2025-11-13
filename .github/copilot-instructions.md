@@ -34,6 +34,8 @@ You are working on an ioBroker adapter. ioBroker is an integration platform for 
 
 This adapter allows you to control and monitor SwitchBot devices through ioBroker using the SwitchBot Cloud API. It supports specific physical devices and infrared remote devices via the official SwitchBot API v1.1.
 
+This adapter uses Mocha + Chai for testing.
+
 ## Testing
 
 ### Unit Testing
