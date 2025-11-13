@@ -9,7 +9,7 @@
     "Enter your SwitchBot Secret Key": "Enter your SwitchBot Secret Key from the mobile app",
     "How often to poll device status": "How often to poll device status (minimum 10000ms)",
     "Enable Cloud Service": "Enable Cloud Service",
-    "Required for BLE devices": "Required for BLE devices to work",
+    "Required for BLE devices to work via API": "Required for BLE devices to work via API",
     "Help": "Help",
     "To get your API credentials:": "To get your API credentials:",
     "1. Open SwitchBot app": "1. Open SwitchBot app",
@@ -19,7 +19,11 @@
     "5. Tap Get Token": "5. Tap Get Token",
     "Test Connection": "Test Connection",
     "Connection successful": "Connection successful",
-    "Connection failed": "Connection failed"
+    "Connection failed": "Connection failed",
+    "Testing...": "Testing...",
+    "Token is required": "Token is required",
+    "Secret key is required": "Secret key is required",
+    "Poll interval must be at least 10000ms": "Poll interval must be at least 10000ms (10 seconds)"
   },
   "de": {
     "SwitchBot adapter settings": "SwitchBot Adapter Einstellungen",
@@ -31,7 +35,7 @@
     "Enter your SwitchBot Secret Key": "Geben Sie Ihren SwitchBot Secret Key aus der mobilen App ein",
     "How often to poll device status": "Wie oft der Gerätestatus abgefragt werden soll (mindestens 10000ms)",
     "Enable Cloud Service": "Cloud-Service aktivieren",
-    "Required for BLE devices": "Erforderlich für BLE-Geräte",
+    "Required for BLE devices to work via API": "Erforderlich für BLE-Geräte, um über die API zu funktionieren",
     "Help": "Hilfe",
     "To get your API credentials:": "So erhalten Sie Ihre API-Anmeldedaten:",
     "1. Open SwitchBot app": "1. SwitchBot App öffnen",
@@ -41,6 +45,10 @@
     "5. Tap Get Token": "5. Tippen Sie auf Token abrufen",
     "Test Connection": "Verbindung testen",
     "Connection successful": "Verbindung erfolgreich",
-    "Connection failed": "Verbindung fehlgeschlagen"
+    "Connection failed": "Verbindung fehlgeschlagen",
+    "Testing...": "Teste...",
+    "Token is required": "Token ist erforderlich",
+    "Secret key is required": "Geheimer Schlüssel ist erforderlich",
+    "Poll interval must be at least 10000ms": "Abfrageintervall muss mindestens 10000ms (10 Sekunden) betragen"
   }
 }

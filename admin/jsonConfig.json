@@ -1,0 +1,182 @@
+{
+  "i18n": true,
+  "type": "panel",
+  "items": {
+    "_info": {
+      "type": "header",
+      "text": "SwitchBot API Configuration",
+      "size": 3
+    },
+    "_apiDescription": {
+      "type": "staticText",
+      "text": "Configure your SwitchBot API credentials to connect to the SwitchBot Cloud API. You can obtain these credentials from the SwitchBot mobile app.",
+      "style": {
+        "marginBottom": "20px"
+      }
+    },
+    "token": {
+      "type": "text",
+      "label": "Open Token",
+      "placeholder": "Enter your SwitchBot API token",
+      "help": "Your SwitchBot Open Token from the mobile app (required)",
+      "required": true,
+      "trim": true,
+      "sm": 12,
+      "md": 12,
+      "lg": 12,
+      "validator": "data.token && data.token.length > 0",
+      "validatorErrorText": "Token is required",
+      "validatorNoSaveOnError": true
+    },
+    "secret": {
+      "type": "password",
+      "label": "Secret Key",
+      "placeholder": "Enter your SwitchBot secret key",
+      "help": "Your SwitchBot Secret Key from the mobile app (required)",
+      "required": true,
+      "trim": true,
+      "sm": 12,
+      "md": 12,
+      "lg": 12,
+      "validator": "data.secret && data.secret.length > 0",
+      "validatorErrorText": "Secret key is required",
+      "validatorNoSaveOnError": true,
+      "autoComplete": "off",
+      "repeat": true
+    },
+    "_divider1": {
+      "type": "divider"
+    },
+    "_pollingHeader": {
+      "type": "header",
+      "text": "Polling Configuration",
+      "size": 4
+    },
+    "pollInterval": {
+      "type": "number",
+      "label": "Poll Interval",
+      "help": "How often to poll device status in milliseconds (minimum 10000ms = 10 seconds)",
+      "min": 10000,
+      "max": 3600000,
+      "step": 1000,
+      "default": 60000,
+      "required": true,
+      "sm": 12,
+      "md": 6,
+      "lg": 4,
+      "validator": "data.pollInterval >= 10000",
+      "validatorErrorText": "Poll interval must be at least 10000ms (10 seconds)",
+      "validatorNoSaveOnError": true
+    },
+    "_pollIntervalInfo": {
+      "type": "staticText",
+      "text": "⚠️ Lower poll intervals increase API usage. SwitchBot API has a limit of 10,000 requests per day.",
+      "style": {
+        "fontSize": "0.9em",
+        "color": "#ff9800",
+        "marginTop": "5px"
+      },
+      "sm": 12,
+      "md": 6,
+      "lg": 8
+    },
+    "_divider2": {
+      "type": "divider"
+    },
+    "_cloudHeader": {
+      "type": "header",
+      "text": "Cloud Service Settings",
+      "size": 4
+    },
+    "enableCloudService": {
+      "type": "checkbox",
+      "label": "Enable Cloud Service",
+      "help": "Required for Bluetooth Low Energy (BLE) devices to work via the API. Disable only if you're using WiFi devices exclusively.",
+      "default": true,
+      "sm": 12,
+      "md": 6,
+      "lg": 6
+    },
+    "_cloudServiceInfo": {
+      "type": "staticText",
+      "text": "ℹ️ Cloud Service must also be enabled in the SwitchBot mobile app under device settings for BLE devices.",
+      "style": {
+        "fontSize": "0.9em",
+        "color": "#2196f3",
+        "marginTop": "5px"
+      },
+      "sm": 12,
+      "md": 6,
+      "lg": 6
+    },
+    "_divider3": {
+      "type": "divider"
+    },
+    "_helpHeader": {
+      "type": "header",
+      "text": "Getting API Credentials",
+      "size": 4
+    },
+    "_helpText": {
+      "type": "staticText",
+      "text": "To obtain your API credentials:",
+      "style": {
+        "fontWeight": "bold",
+        "marginBottom": "10px"
+      }
+    },
+    "_helpSteps": {
+      "type": "staticText",
+      "text": "1. Open the SwitchBot mobile app<br>2. Go to <strong>Profile → Preferences</strong><br>3. Tap <strong>App Version</strong> 10 times to enable Developer Options<br>4. Tap <strong>Developer Options</strong><br>5. Tap <strong>Get Token</strong> to view your credentials<br><br><em style='color: #666;'>Note: You need SwitchBot app version 6.14 or later to get the secret key.</em>",
+      "style": {
+        "lineHeight": "1.8",
+        "backgroundColor": "#f5f5f5",
+        "padding": "15px",
+        "borderRadius": "4px",
+        "borderLeft": "4px solid #4caf50"
+      }
+    },
+    "_divider4": {
+      "type": "divider"
+    },
+    "_supportedDevicesHeader": {
+      "type": "header",
+      "text": "Supported Devices",
+      "size": 4
+    },
+    "_supportedDevicesPhysical": {
+      "type": "staticText",
+      "text": "<strong>Physical Devices:</strong> Bot, Curtain/Curtain 3, Smart Lock/Lock Pro/Lock Ultra, Meter/Meter Plus/Meter Pro/Meter Pro (CO2), Outdoor Meter (WoIOSensor), Plug/Plug Mini (US/JP/EU), Color Bulb, Strip Light, Humidifier, Motion Sensor, Contact Sensor",
+      "style": {
+        "marginBottom": "10px",
+        "lineHeight": "1.6"
+      }
+    },
+    "_supportedDevicesIR": {
+      "type": "staticText",
+      "text": "<strong>Infrared Remote Devices:</strong> All IR device types (TV, Air Conditioner, Light, Fan, etc.) via SwitchBot Hub",
+      "style": {
+        "lineHeight": "1.6"
+      }
+    },
+    "_divider5": {
+      "type": "divider"
+    },
+    "_apiLimitsHeader": {
+      "type": "header",
+      "text": "API Rate Limits",
+      "size": 4
+    },
+    "_apiLimitsInfo": {
+      "type": "staticText",
+      "text": "⚠️ <strong>Important:</strong> The SwitchBot API has a limit of <strong>10,000 requests per day</strong> per account. With the default poll interval of 60 seconds, this adapter will make approximately 1,440 requests per day, well within the limit. Reduce the poll interval only if necessary.",
+      "style": {
+        "backgroundColor": "#fff3cd",
+        "padding": "15px",
+        "borderRadius": "4px",
+        "borderLeft": "4px solid #ffc107",
+        "lineHeight": "1.6"
+      }
+    }
+  }
+}
