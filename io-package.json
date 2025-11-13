@@ -1,9 +1,9 @@
 {
   "common": {
     "name": "switchbot",
-    "version": "1.0.0",
+    "version": "0.9.0",
     "news": {
-      "1.0.0": {
+      "0.9.0": {
         "en": "Initial release with SwitchBot API v1.1 support",
         "de": "Erste Veröffentlichung mit SwitchBot API v1.1 Unterstützung",
         "ru": "Первоначальный выпуск с поддержкой SwitchBot API v1.1",
