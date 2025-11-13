@@ -34,9 +34,8 @@
 - Debug logging for troubleshooting
 
 ### Requirements
-- Node.js >= 16
+- Node.js >= 18
 - ioBroker >= 3.3.22
 - SwitchBot app version 6.14 or later
 - Valid SwitchBot API credentials (token and secret)
-
 - Cloud Service enabled for BLE devices
