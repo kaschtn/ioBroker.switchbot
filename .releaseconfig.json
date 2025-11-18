@@ -1,0 +1,12 @@
+{
+  "plugins": ["iobroker"],
+  "all": true,
+  "github": {
+    "enabled": true,
+    "draft": false,
+    "prerelease": false
+  },
+  "numChangelogEntries": 5,
+  "numNews": 7,
+  "addPlaceholder": true
+}
