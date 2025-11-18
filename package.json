@@ -6,7 +6,7 @@
     "name": "ioBroker Community",
     "email": "info@iobroker.net"
   },
-  "homepage": "https://github.com/ioBroker/iobroker.switchbot",
+  "homepage": "https://github.com/kaschtn/iobroker.switchbot",
   "license": "MIT",
   "keywords": [
     "ioBroker",
@@ -17,7 +17,7 @@
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/ioBroker/iobroker.switchbot.git"
+    "url": "https://github.com/kaschtn/iobroker.switchbot.git"
   },
   "engines": {
     "node": ">=18"
@@ -28,8 +28,8 @@
   },
   "devDependencies": {
     "@iobroker/testing": "^5.2.2",
-        "@alcalzone/release-script": "^3.8.0",
-    "@alcalzone/release-script-plugin-iobroker": "^3.8.0",
+    "@alcalzone/release-script": "^4.0.0",
+    "@alcalzone/release-script-plugin-iobroker": "^4.0.0",
     "@types/node": "^20.8.0",
     "eslint": "^8.50.0",
     "eslint-config-prettier": "^10.1.8",
@@ -63,7 +63,7 @@
     "release-major": "release-script major --yes"
   },
   "bugs": {
-    "url": "https://github.com/ioBroker/iobroker.switchbot/issues"
+    "url": "https://github.com/kaschtn/iobroker.switchbot/issues"
   },
   "readmeFilename": "README.md"
 }
